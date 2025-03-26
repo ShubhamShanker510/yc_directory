@@ -31,4 +31,13 @@
     1. to use the sanity studio go the url and go to /studio
     2. In schemaType folder setup of author and structure
     3. Checkout the folder and files of sanity
-    
+
+# Step -5 How to add data and extract from sanity
+    1. To add data currently you can go the /studio path and can add author and startups
+    2. To extract the data build a queries file in sanity/lib/queries.ts
+    3. In page.tsx calling the query in post
+    4. Dispaly a content in next js checkout this file ▶️ https://www.sanity.io/learn/course/day-one-with-sanity-studio/bringing-content-to-a-next-js-front-end
+    5. Make sure to add these these line in package.json given below:
+        "predev": "npm run typegen",
+        "prebuild": "npm run typegen",
+        "typegen": "sanity schema extract --path=./sanity/extract.json && sanity typegen generate"

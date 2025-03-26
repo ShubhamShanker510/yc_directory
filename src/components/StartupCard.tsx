@@ -5,6 +5,9 @@ import Link from 'next/link'
 import robotImg from '../../public/robot.jpg'
 import Image from 'next/image'
 import { Button } from './ui/button'
+import { Author, Startup } from '../../sanity/types'
+
+export type StartupTypeCard=Omit<Startup,"author"> & {author?: Author}
 
 export default function StartupCard({post}:{post: StartupTypeCard}) {
   return (
@@ -27,7 +30,7 @@ export default function StartupCard({post}:{post: StartupTypeCard}) {
                     <h3 className='font-semibold text-[26px] text-black'>
                         {post.title}</h3></Link>
                 </div>
-                <Link href={`/user/${post.authorId}`}>
+                <Link href={`/user/${post.author?._id}`}>
                 <Image src="https://placehold.co/48x48" alt="placeholder" width={48} height={48} className='rounded-full'/>
                 </Link>
             
@@ -36,10 +39,10 @@ export default function StartupCard({post}:{post: StartupTypeCard}) {
         <p className='font-normal text-[16px] line-clamp-2 my-3 text-black-100 break-all'>
             {post.category}
         </p>
-        <Image src={robotImg} alt="placeholder" className=' w-full h-[164px] rounded-[10px] object-cover'/>
+        <img src={post.image} alt="placeholder" className=' w-full h-[164px] rounded-[10px] object-cover'/>
         </Link>
         <div className='flex justify-between items-center gap-3 mt-5'>
-            <Link href={`/?query=${post.category.toLowerCase()}`}>
+            <Link href={`/?query=${post.category?.toLowerCase()}`}>
             <p className='font-medium text-[16px] text-black'>{post.category}</p>
             </Link>
             <Button className="rounded-full bg-black font-medium text-[16px] text-white px-5 py-3" asChild>
