@@ -1,7 +1,8 @@
 import { defineQuery } from "next-sanity";
 
+// Here pickup the data we want and also filter data according to the user search
 export const STARTUPS_QUERY=defineQuery(
-    `*[_type=="startup" && defined(slug.current)] | order(_createdAt desc){
+    `*[_type=="startup" && defined(slug.current) && !defined($search) || category match $search || author->name match $search || title match $search] | order(_createdAt desc){
   _id, 
   title,
   slug,

@@ -1,13 +1,17 @@
-// Querying with "sanityFetch" will keep content automatically updated
-// Before using it, import and render "<SanityLive />" in your layout, see
-// https://github.com/sanity-io/next-sanity#live-content-api for more information.
-import { defineLive } from "next-sanity";
-import { client } from './client'
+// It will make sure following code on the server only not on the client-side
+// It can be userful for performing server-side actions like querying a database or fetching content that should not be exposed to the client
+import "server-only"
 
-export const { sanityFetch, SanityLive } = defineLive({ 
-  client: client.withConfig({ 
-    // Live content is currently only available on the experimental API
-    // https://www.sanity.io/docs/api-versioning
-    apiVersion: 'vX' 
-  }) 
-});
+// definelive function is used to enable live updates(real time content-fetching)
+import { defineLive } from "next-sanity"
+
+// The client file is responsible for making requsts to sanity api to fetch content
+import {client} from '@/sanity/lib/client'
+
+
+export const {sanityFetch, SanityLive}=defineLive({client})
+// This line calls the defineLive function with the client (Sanity client instance), which sets up live content fetching. It returns two things: sanityFetch and SanityLive.
+
+//     sanityFetch: A function for fetching data from Sanity, probably with live updates enabled.
+
+//     SanityLive: Likely a component or utility that helps in rendering the live-updating content.

@@ -41,3 +41,32 @@
         "predev": "npm run typegen",
         "prebuild": "npm run typegen",
         "typegen": "sanity schema extract --path=./sanity/extract.json && sanity typegen generate"
+
+## Static Generation
+    where html pages are pre-rendered at build time. This result in faster load times since the content is served as static files
+
+## Incremental Static Regeneration(ISR)
+    It allow you to update static content after the site has been built and deployed.
+    ->With the help of ISR you can regenerate specific pages based on predefined interval or trigger, ensuring the content remian fresh without rebuilding the entire site
+
+## Server-Sider Rendering
+    Generate HTML pages on each request, While SSR ensure that content is always up to date , it can be slower compareed to SSG.
+
+## API Caching
+    API routes in Next JS can benefit from caching to reduce latency and server load.Implementing caching in API routes ensures that frequently data is served quickly
+
+## Client-Side Caching
+    It involves storing data in the browser to reduce the need for repeated network requests.This can be achieved using service workers,local storage , or in-memory caching
+
+
+# Step -6 Caching and live api
+    1. In client.ts file in /sanity/lib folder you can check that it is false (by default it is true) .To make it false is that to dont cache our request data in every 60 sec , just to get data on every refresh
+    
+    2. But what if I want the dynamic data without refreshing for that we will use live content api from sanity. Check out the live.ts folder in /sanity/lib
+
+    3.In env file setup of NEXT_PUBLIC_SANITY_API_VERSION
+
+    4. In page.tsx using sanityfetch and sanitylive to get live data
+
+    5. To get the filter data in page.tsx file we are using search params and getting data from the query and than sending it to the queries.ts file and using $search method getting the data
+
