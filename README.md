@@ -70,3 +70,13 @@
 
     5. To get the filter data in page.tsx file we are using search params and getting data from the query and than sending it to the queries.ts file and using $search method getting the data
 
+## Partial Pre-rendering
+    The ability to pre-render only specific parts or section of a page rather than rendering the entire page on the server during the intial request.This allow you to optimize performance by rendering only certain parts of a page that are needed and leave others to be rendered on the client side.This hybrid approach combines the advantages of both Static Generation and Client-Side Rendering.
+
+    👉When to Use Partial Pre-Rendering
+
+    zSEO Optimization: Static content can be pre-rendered, which improves SEO because search engines can crawl the content.
+
+    Faster Loading: Static content is served immediately, while dynamic parts are fetched after the page load.
+
+    Flexibility: You can update dynamic content without needing to re-build or re-render the whole page.

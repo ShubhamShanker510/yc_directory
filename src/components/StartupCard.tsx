@@ -37,7 +37,7 @@ export default function StartupCard({post}:{post: StartupTypeCard}) {
         </div>
         <Link href={`/startup/${post._id}`}>
         <p className='font-normal text-[16px] line-clamp-2 my-3 text-black-100 break-all'>
-            {post.category}
+            {post.description}
         </p>
         <img src={post.image} alt="placeholder" className=' w-full h-[164px] rounded-[10px] object-cover'/>
         </Link>
@@ -46,7 +46,7 @@ export default function StartupCard({post}:{post: StartupTypeCard}) {
             <p className='font-medium text-[16px] text-black'>{post.category}</p>
             </Link>
             <Button className="rounded-full bg-black font-medium text-[16px] text-white px-5 py-3" asChild>
-                <Link href={`/startup/${post.author?._id}`}>
+                <Link href={`/startup/${post._id}`}>
                 Details
                 </Link>
             </Button>
