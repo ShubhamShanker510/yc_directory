@@ -80,3 +80,10 @@
     Faster Loading: Static content is served immediately, while dynamic parts are fetched after the page load.
 
     Flexibility: You can update dynamic content without needing to re-build or re-render the whole page.
+
+# Step-7 Building Startuppage according to the id
+    1. create a query in queries.ts file to get the startup according to its id.
+    2. Build a static and dynamic content where startup details will be static and views will be dynamic.
+    3. Try to handle the static and dynamic content with the help of Partial pre rendering
+    4. Than also built a views component to get the dynamic content
+    5. For the getting the views create a new query in queries.tsx.
