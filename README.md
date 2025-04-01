@@ -87,3 +87,9 @@
     3. Try to handle the static and dynamic content with the help of Partial pre rendering
     4. Than also built a views component to get the dynamic content
     5. For the getting the views create a new query in queries.tsx.
+
+# Step-8 Updating views
+    1. Create a api token in sanity and added into env file
+    2. In /sanity/schemaTypes/env.ts importing the token
+    3. Creating the write-client.ts file to use the token and client can edit views
+    4. In views.ts file update the totalviews from the client side
