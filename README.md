@@ -93,3 +93,9 @@
     2. In /sanity/schemaTypes/env.ts importing the token
     3. Creating the write-client.ts file to use the token and client can edit views
     4. In views.ts file update the totalviews from the client side
+
+# Step-9 Authentication Flow
+    1. Getting session id 
+    2. In auth.ts checkout the user that user exist or not if exist that get his/her id or if not create a new user
+    3. make usecdn false as to not cache it and get the user id as fast as possible
+    4. In page.tsx calling the session
